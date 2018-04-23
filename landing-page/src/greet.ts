@@ -1,3 +1,3 @@
 export function sayHello(name: string){
-    return 'hello from me using gulp ' + name;
+    return 'greet.ts / greet.js ' + name;
 }
