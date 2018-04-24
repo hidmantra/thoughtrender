@@ -42,7 +42,7 @@ window.onresize = function(event)
         multi.style.opacity = '1';
         music.style.opacity = '1';
         multi.style.left = '20px';
-        music.style.left = (holder.clientWidth - 220).toString() + px;
+        music.style.left = (holder.clientWidth - 220).toString() + "px";
     }
 };
 
