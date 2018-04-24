@@ -69,6 +69,7 @@ function bundle() {
 // Static Server + watching scss/html files
 gulp.task('serve', function() {
     bundle();
+    
     browserSync.init({
         server: "./dist"
     });
