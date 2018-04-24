@@ -1,14 +1,45 @@
-import { sayHello } from "./greet";
 
-function showHello(divName: string, name: string) {
-    const elt = document.getElementById(divName);
-    name = name + " two eighteen bullcrap";
-    const stats_width = document.getElementById('stats_width');
-    const stats_height = document.getElementById('stats_height');
-    elt.innerText = sayHello(name);
-    stats_width.innerText = ( "window width: " + window.innerWidth);
-    stats_height.innerText = ( "window height: " +window.innerHeight);
-    
-}
+let multi:HTMLElement = document.getElementById('multi');
+let music:HTMLElement = document.getElementById('music');
+let holder:HTMLElement = document.getElementById('holder');
+let mainImage:HTMLElement = document.getElementById('mainimage');
 
-showHello("greeting", "TypeScript");    
+document.addEventListener("DOMContentLoaded", function(event) 
+{ 
+    console.log("loaded");
+    setTimeout(function()
+    {
+        mainImage.style.opacity = '1';
+        if(window.innerWidth > 481)
+        {
+            setTimeout(function()
+            {
+                console.log('timeoue met')
+                multi.style.left = '20px';
+				multi.style.opacity = '1';
+				music.style.left = (holder.clientWidth - 220).toString() +"px";
+				music.style.opacity = '1';
+			},3000);
+		}
+    },100);
+});
+
+
+window.onresize = function(event) 
+{
+    console.log("width = " + window.innerWidth + " height = " + window.innerHeight);
+    if(window.innerWidth < 480)
+    {
+        multi.style.left = '0';
+        music.style.left = '0';
+    }
+    else
+    {
+        multi.style.opacity = '1';
+        music.style.opacity = '1';
+        multi.style.left = '20';
+        music.style.left = (holder.clientWidth - 220).toString();
+    }
+};
+
+
