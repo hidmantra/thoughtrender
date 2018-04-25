@@ -1,12 +1,14 @@
 
 //import { sayHello } from "./NiceDate";
 import { NiceDate } from "./NiceDate";
+import { MakeOrdinal } from "./MakeOrdinal";
 
 let multi:HTMLElement = document.getElementById('multi');
 let music:HTMLElement = document.getElementById('music');
 let holder:HTMLElement = document.getElementById('holder');
 let mainImage:HTMLElement = document.getElementById('mainimage');
 let theDate:HTMLElement = document.getElementById('thedate');
+let makeOrdinal = new MakeOrdinal();
 
 document.addEventListener("DOMContentLoaded", function(event) 
 { 
@@ -40,8 +42,13 @@ function getTheDate(){
     today = months[d.getMonth()];
     today = today + theDay.toString();
     console.log(today);
+    for (var _i = 0; _i < 130; _i++) {
+        console.log( _i + " " +  makeOrdinal.getOrdinal(_i));
+
+    }
+    //console.log(makeOrdinal.getOrdinal(3));
     return today 
-}
+};
 
 
 window.addEventListener("mousemove", function(event){

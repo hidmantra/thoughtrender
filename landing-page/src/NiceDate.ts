@@ -8,6 +8,13 @@ export class NiceDate
         console.log('NiceDate made');
         this.d = new Date();
         this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
     }
+
+   
+    public getMonth():string{
+
+        let month:string = this.months[this.d.getMonth()];
+        return month;
+    };
+    
 }
