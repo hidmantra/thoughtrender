@@ -4,7 +4,7 @@ $main-fonts: Arial, Helvetica, sans-serif;
 html, body {
   	height: 95%;
   	width: 95%;
-	padding: 0;
+	padding: 1em;
   	margin: 0;
  	background: black url(../images/home_bk_sm.jpg) center center no-repeat;
 	-webkit-background-size: cover;
@@ -13,17 +13,16 @@ html, body {
 	background-size: cover;
 }
 
-#thedate {
-    opacity: 0;
-    
+#thedate, #theBrowser {
+    opacity: 0;  
 }
 
 .stat {
     float: left;
-    height: 40px;
     border-style:solid;
 	border-width:thin;
-    border-color:#fff;
+	border-color:#fff;
+	padding: 1em;
     font: 100% $main-fonts;
     color: #aaa;
 }

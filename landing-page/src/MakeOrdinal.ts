@@ -57,6 +57,10 @@ export class MakeOrdinal
         return originalNumber.toString() + ordinal;
     }
 
+    /**
+     * 
+     * @param myNumber 
+     */
     private getTenthPlace(myNumber:number):number
     {
         let stringNumber:string = myNumber.toString();

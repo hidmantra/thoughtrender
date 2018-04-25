@@ -1,16 +1,22 @@
 
 //import { sayHello } from "./NiceDate";
 import { NiceDate } from "./NiceDate";
-import { MakeOrdinal } from "./MakeOrdinal";
 
+// Html Elements
 let multi:HTMLElement = document.getElementById('multi');
 let music:HTMLElement = document.getElementById('music');
 let holder:HTMLElement = document.getElementById('holder');
 let mainImage:HTMLElement = document.getElementById('mainimage');
-let theDate:HTMLElement = document.getElementById('thedate');
-let makeOrdinal = new MakeOrdinal();
+let theDate:HTMLElement = document.getElementById('thedate');   
+let theBrowser:HTMLElement = document.getElementById('thebrowser');
 
-document.addEventListener("DOMContentLoaded", function(event) 
+let niceDate:NiceDate = new NiceDate();
+
+
+/**
+ * Fires when everything is loaded and ready to GO!
+ */
+document.addEventListener("DOMContentLoaded", function(event):void 
 { 
     console.log("loaded");
     setTimeout(function()
@@ -27,28 +33,37 @@ document.addEventListener("DOMContentLoaded", function(event)
                 music.style.opacity = '1';
                 theDate.style.opacity = '1';
                 theDate.innerHTML = getTheDate();
+                //theBrowser.style.opacity = '1';
+                //theBrowser.innerHTML = getTheBrowser();
 			},3000);
 		}
     },100);
 });
 
-
-function getTheDate(){
+/**
+ * Gets the date for display
+ */
+function getTheDate():string{
     let today:string;
     
     var d = new Date();
-    let theDay = d.getDate();
+    let theOrdinalDay = niceDate.getOrdinalDate();  
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     today = months[d.getMonth()];
-    today = today + theDay.toString();
+    today = today + " " + theOrdinalDay;
     console.log(today);
-    for (var _i = 0; _i < 130; _i++) {
-        console.log( _i + " " +  makeOrdinal.getOrdinal(_i));
-
-    }
-    //console.log(makeOrdinal.getOrdinal(3));
+    
     return today 
 };
+
+/**
+ * maybe make
+ */
+function getTheBrowser():string
+{
+
+    return
+}
 
 
 window.addEventListener("mousemove", function(event){
@@ -56,7 +71,7 @@ window.addEventListener("mousemove", function(event){
     //
 });
 
-window.onresize = function(event) 
+window.onresize = function(event):void 
 {
     console.log("width = " + window.innerWidth + " height = " + window.innerHeight);
     if(window.innerWidth < 480)

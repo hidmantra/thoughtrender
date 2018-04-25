@@ -1,7 +1,13 @@
+import { MakeOrdinal } from "./MakeOrdinal";
+
 export class NiceDate 
 {
     d:Date;
+    private ordinalDate:string;
+    private month:string;
+
     private months:Array<string>;
+    makeOrdinal:MakeOrdinal = new MakeOrdinal();
 
     constructor()
     {
@@ -13,8 +19,17 @@ export class NiceDate
    
     public getMonth():string{
 
-        let month:string = this.months[this.d.getMonth()];
-        return month;
+        this.month = this.months[this.d.getMonth()];
+        return this.month;
     };
-    
+
+
+    public getOrdinalDate():string
+    {
+        let date:string = String(this.d.getDate());
+        this.ordinalDate = String(this.makeOrdinal.getOrdinal(Number(date)));   
+        
+        return this.ordinalDate;
+    }
+
 }
