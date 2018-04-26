@@ -18,14 +18,17 @@ html, body {
 }
 
 .stat {
-    float: left;
+	float: left;
+	position: absolute;
+	//display: inline-block;
     border-style:solid;
 	border-width:thin;
 	border-color:rgb(255, 255, 255);
-	padding: 10px;
+	padding: 6px;
     font: 100% $main-fonts;
     color: #aaa;
 }
+
 
 #mainimage {
 	opacity:0;

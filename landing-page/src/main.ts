@@ -40,10 +40,11 @@ document.addEventListener("DOMContentLoaded", function(event):void
 
                 thewidth.style.opacity = '1';
                 thewidth.innerHTML = "width: " + String(window.innerWidth);
-                
+                thewidth.style.top = '70px';
+
                 theheight.style.opacity = '1';
                 theheight.innerHTML = "height: " + String(window.innerHeight);
-
+                theheight.style.top = '108px';
                 //thebrowser.style.opacity = '1';
                 //thebrowser.innerHTML = getTheBrowser();
 			},3000);
@@ -85,6 +86,8 @@ window.addEventListener("mousemove", function(event){
 window.onresize = function(event):void 
 {
     console.log("width = " + window.innerWidth + " height = " + window.innerHeight);
+    thewidth.innerHTML = "width: " + String(window.innerWidth);
+    theheight.innerHTML = "width: " + String(window.innerHeight);
     if(window.innerWidth < 480)
     {
         multi.style.left = '0';

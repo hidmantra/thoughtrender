@@ -73,7 +73,7 @@ gulp.task('serve', function() {
     browserSync.init({
         server: "./dist"
     });
-  
+    gulp.watch("src/*.ts", browserSync.reload);
     gulp.watch("src/sass/**/*.scss", ['sass']);
     //gulp.watch("dist/*.html").on('change', browserSync.reload);
     gulp.watch("src/*.html").on('change', browserSync.reload);
