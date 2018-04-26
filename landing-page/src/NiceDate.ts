@@ -27,7 +27,7 @@ export class NiceDate
     public getOrdinalDate():string
     {
         let date:string = String(this.d.getDate());
-        this.ordinalDate = String(this.makeOrdinal.getOrdinal(Number(date)));   
+        this.ordinalDate = this.makeOrdinal.getOrdinal(Number(date));   
         
         return this.ordinalDate;
     }

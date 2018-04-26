@@ -13,7 +13,7 @@ html, body {
 	background-size: cover;
 }
 
-#thedate, #theBrowser {
+#thedate, #theBrowser, #thewidth, #theheight {
     opacity: 0;  
 }
 
@@ -21,8 +21,8 @@ html, body {
     float: left;
     border-style:solid;
 	border-width:thin;
-	border-color:#fff;
-	padding: 1em;
+	border-color:rgb(255, 255, 255);
+	padding: 10px;
     font: 100% $main-fonts;
     color: #aaa;
 }

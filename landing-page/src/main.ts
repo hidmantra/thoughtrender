@@ -6,9 +6,11 @@ import { NiceDate } from "./NiceDate";
 let multi:HTMLElement = document.getElementById('multi');
 let music:HTMLElement = document.getElementById('music');
 let holder:HTMLElement = document.getElementById('holder');
-let mainImage:HTMLElement = document.getElementById('mainimage');
-let theDate:HTMLElement = document.getElementById('thedate');   
-let theBrowser:HTMLElement = document.getElementById('thebrowser');
+let mainimage:HTMLElement = document.getElementById('mainimage');
+let thedate:HTMLElement = document.getElementById('thedate');   
+let thebrowser:HTMLElement = document.getElementById('thebrowser');
+let thewidth:HTMLElement = document.getElementById('thewidth');
+let theheight:HTMLElement = document.getElementById('theheight');
 
 let niceDate:NiceDate = new NiceDate();
 
@@ -21,20 +23,29 @@ document.addEventListener("DOMContentLoaded", function(event):void
     console.log("loaded");
     setTimeout(function()
     {
-        mainImage.style.opacity = '1';
+        mainimage.style.opacity = '1';
         if(window.innerWidth > 481)
         {
             setTimeout(function()
             {
                 console.log('timeoue met')
                 multi.style.left = '20px';
-				multi.style.opacity = '1';
+                multi.style.opacity = '1';
+                
 				music.style.left = (holder.clientWidth - 220).toString() +"px";
                 music.style.opacity = '1';
-                theDate.style.opacity = '1';
-                theDate.innerHTML = getTheDate();
-                //theBrowser.style.opacity = '1';
-                //theBrowser.innerHTML = getTheBrowser();
+
+                thedate.style.opacity = '1';
+                thedate.innerHTML = getTheDate();
+
+                thewidth.style.opacity = '1';
+                thewidth.innerHTML = "width: " + String(window.innerWidth);
+                
+                theheight.style.opacity = '1';
+                theheight.innerHTML = "height: " + String(window.innerHeight);
+
+                //thebrowser.style.opacity = '1';
+                //thebrowser.innerHTML = getTheBrowser();
 			},3000);
 		}
     },100);
