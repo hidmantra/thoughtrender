@@ -15,8 +15,10 @@ html, body {
 }
 
 
-#thedate, #theBrowser, #thewidth, #theheight {
-    opacity: 0;  
+#thedate {
+	opacity: 0; 
+	top: 2em;
+	left: 5%; 
 }
 
 .test {
@@ -42,11 +44,11 @@ html, body {
 	//display: inline-block;
     border-style:solid;
 	border-width:thin;
-	border-color:rgb(103, 80, 133);
+	border-color:rgb(39, 36, 44);
 	padding: 4px;
 	font: 100% $main-fonts;
 	font-size: .7em;
-    color: rgb(103, 80, 133);
+    color: rgb(84, 67, 107);
 }
 
 
