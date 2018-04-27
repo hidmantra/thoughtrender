@@ -1,3 +1,9 @@
+/**
+ * This class is used to convert any positive whole number into an ordinal number
+ * 
+ * @author Deriv Diggs
+ * @version 1.0
+ */
 export class MakeOrdinal
 {
 
@@ -6,24 +12,28 @@ export class MakeOrdinal
         console.log('MakeOrdinal instantiated');
     }
 
+    /**
+     * returns the ordinal value of any posive whole number
+     * 
+     * @param originalNumber should be positive whole number
+     */
     public getOrdinal(originalNumber: number):string
     {
         let ordinal:string = "th";
-        let tenthPlaceNumber:number;
+        let tensPlaceNumber:number;
         let lastPlaceNumber:number;
-        let stringOriginalNumber:string = originalNumber.toString();
         
         if(originalNumber > 9)
         {
-            tenthPlaceNumber = this.getTenthPlace(originalNumber);
-            if(tenthPlaceNumber > 9 && tenthPlaceNumber < 21)
+            tensPlaceNumber = this.getTensPlace(originalNumber);
+            if(tensPlaceNumber > 9 && tensPlaceNumber < 21)
             {
                 
                 return originalNumber.toString() + ordinal;
             }
             else
             {
-                lastPlaceNumber = this.getLastPlace(tenthPlaceNumber);
+                lastPlaceNumber = this.getOnesPlace(tensPlaceNumber);
             }
         }
         else
@@ -58,17 +68,23 @@ export class MakeOrdinal
     }
 
     /**
+     * returns the ones and tens place of any number
      * 
-     * @param myNumber 
+     * @param myNumber the base number 
      */
-    private getTenthPlace(myNumber:number):number
+    private getTensPlace(myNumber:number):number
     {
         let stringNumber:string = myNumber.toString();
         let newNumber:number = Number(stringNumber.slice((stringNumber.length-2), stringNumber.length));
         return newNumber;
     }
 
-    private getLastPlace(myNumber:number):number
+    /**
+     * returns the number in the ones place
+     * 
+     * @param myNumber the base number
+     */
+    private getOnesPlace(myNumber:number):number
     {
         let newNumber:number;
         if(myNumber > 10)

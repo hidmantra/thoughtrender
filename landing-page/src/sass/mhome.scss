@@ -1,32 +1,52 @@
 
 $main-fonts: Arial, Helvetica, sans-serif;
+$transTime: 1s;
 
 html, body {
   	height: 95%;
   	width: 95%;
-	padding: 1em;
-  	margin: 0;
+	margin: 0;
  	background: black url(../images/home_bk_sm.jpg) center center no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	
 }
+
 
 #thedate, #theBrowser, #thewidth, #theheight {
     opacity: 0;  
 }
 
-.stat {
-	float: left;
+.test {
+	opacity: 1;
 	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border-style:solid;
+	border-width:thin;
+	border-color:rgb(103, 80, 133);
+	
+	-webkit-transition : all $transTime;
+    -moz-transition    : all $transTime;
+	transition         : all $transTime;
+	
+}
+.stat {
+	//float: left;
+	position: absolute;
+	left:5%;
+	//position: relative;
 	//display: inline-block;
     border-style:solid;
 	border-width:thin;
-	border-color:rgb(255, 255, 255);
-	padding: 6px;
-    font: 100% $main-fonts;
-    color: #aaa;
+	border-color:rgb(103, 80, 133);
+	padding: 4px;
+	font: 100% $main-fonts;
+	font-size: .7em;
+    color: rgb(103, 80, 133);
 }
 
 
