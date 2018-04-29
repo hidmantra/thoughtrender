@@ -5,9 +5,22 @@ let multi:HTMLElement = document.getElementById('multi');
 let music:HTMLElement = document.getElementById('music');
 let holder:HTMLElement = document.getElementById('holder');
 let mainimage:HTMLElement = document.getElementById('mainimage');
-let thedate:HTMLElement = document.getElementById('thedate');   
+let thedate:HTMLElement = document.getElementById('thedate'); 
+let city:HTMLElement = document.getElementById('city');   
 
 let niceDate:NiceDate = new NiceDate();
+
+let moveBKReady:boolean = false;
+
+let screenHeight:number;
+let screenWidth:number;
+let mouseX:number;
+let mouseY:number;
+
+
+
+
+
 
 /**
  * Fires when everything is loaded and ready to GO!
@@ -30,11 +43,38 @@ document.addEventListener("DOMContentLoaded", function(event):void
                 music.style.opacity = '1';
 
                 thedate.style.opacity = '1';
+                thedate.style.left = '20px';
                 thedate.innerHTML = getTheDate();
 			},3000);
         }
     },100);
 });
+
+/**
+ * Adjusts the screen when mouse moves or screen is resized
+ */
+
+function adjustScreen():void
+{
+    let adjustX:number = ((window.innerWidth/2) - mouseX) / 10;
+    let adjustY:number = ((window.innerHeight/2) - mouseY) / 10;
+ 
+    
+
+    if(adjustX > -5 && adjustX < 5){ moveBKReady = true; };
+
+    if(moveBKReady)
+    {
+        city.style.left = String(((city.clientWidth/2 - city.clientWidth/2)+ adjustX))+ "px";
+
+        city.style.top = String(((city.clientHeight/2 - city.clientHeight/2)+ adjustY))+ "px";
+
+        console.log('adjustX:' +adjustX);
+    }
+    //fix bug that clear 'left' when resized to mobile size
+    thedate.style.left = '20px';
+   
+}
 
 /**
  * Gets the date for display
@@ -46,6 +86,15 @@ function getTheDate():string
     return today 
 };
 
+document.addEventListener("mousemove", function(event:MouseEvent)
+{
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    adjustScreen();
+});
+
+
 /**
  * fires when window is resized
  * 
@@ -53,10 +102,15 @@ function getTheDate():string
  */
 window.onresize = function(event):void 
 {
+    screenHeight = window.innerHeight;
+    screenWidth = window.innerWidth;
+    console.log('w: ' + screenWidth + ' h: ' + screenHeight);
+
     if(window.innerWidth < 480)
     {
         multi.style.left = '0';
         music.style.left = '0';
+        thedate.style.left = '0';
     }
     else
     {
@@ -65,6 +119,7 @@ window.onresize = function(event):void
         multi.style.left = '20px';
         music.style.left = (holder.clientWidth - 220).toString() + "px";
     }
+    adjustScreen();
 };
 
 

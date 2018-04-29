@@ -1,15 +1,16 @@
 html, body {
-  background: black url(../images/home_bk.jpg) center center no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   text-align:center;
 }
 
-#thedate {
-	left: 25%; 
-}
+#city {
+  width: 100%;
+  height: 100%;
+	background: black url(../images/home_bk.jpg) center center no-repeat;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  }
+
 
 #mainimage {
   opacity:0;
@@ -63,4 +64,18 @@ html, body {
   top:535px;
   width:98%;
   text-align:left;
+}
+
+#multi:hover {
+	border-top-left-radius:60%;
+	border-bottom-left-radius:60%;
+	border-top-right-radius:0%;
+	border-bottom-right-radius:0%;
+}
+
+#music:hover {
+	border-top-right-radius:60%;
+	border-bottom-right-radius:60%;
+	border-top-left-radius:0%;
+	border-bottom-left-radius:0%;
 }
