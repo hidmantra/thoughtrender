@@ -10,7 +10,7 @@ let city:HTMLElement = document.getElementById('city');
 
 let niceDate:NiceDate = new NiceDate();
 
-let moveBKReady:boolean = false;
+let moveBKReady:boolean = true;
 
 let screenHeight:number;
 let screenWidth:number;
@@ -58,14 +58,20 @@ function adjustScreen():void
 {
     let adjustX:number = ((window.innerWidth/2) - mouseX) / 10;
     let adjustY:number = ((window.innerHeight/2) - mouseY) / 10;
- 
+    let cityNewLeft:number;
     
 
     if(adjustX > -5 && adjustX < 5){ moveBKReady = true; };
 
     if(moveBKReady)
     {
-        city.style.left = String(((city.clientWidth/2 - city.clientWidth/2)+ adjustX))+ "px";
+        cityNewLeft = ((city.clientWidth/2 - city.clientWidth/2)+ adjustX);
+        console.log('city x: ' + cityNewLeft );
+        if(cityNewLeft < -40)
+        {
+            cityNewLeft = -40;
+        }
+        city.style.left = String(cityNewLeft)+ "px";
 
         city.style.top = String(((city.clientHeight/2 - city.clientHeight/2)+ adjustY))+ "px";
 

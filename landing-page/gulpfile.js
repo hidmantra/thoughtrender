@@ -3,7 +3,8 @@ var browserify = require("browserify");
 var source = require('vinyl-source-stream');
 var watchify = require("watchify");
 var tsify = require("tsify");
-var uglify = require('gulp-uglify');
+//var uglify = require('gulp-uglify');
+var pump = require('pump');
 var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer');
 var babel = require("gulp-babel");
@@ -12,6 +13,7 @@ var gutil = require("gulp-util");
 var eslint = require('gulp-eslint');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
+const minify = require('minify');
 var paths = {
     pages: ['src/*.html']
 };
@@ -24,11 +26,28 @@ var watchedBrowserify = watchify(browserify({
     packageCache: {}
 }).plugin(tsify));
 
+minify('source.js', (error, data) => {
+    if (error)
+        return console.error(error.message);
+    
+    console.log(data);
+});
+
 gulp.task("copy-html", function(){
     return gulp.src(paths.pages)
     .pipe(gulp.dest("dist"));
 });
-
+/*
+gulp.task('compress', function (cb) {
+    pump([
+          gulp.src('dist/*.js'),
+          uglify(),
+          gulp.dest('ugly')
+      ],
+      cb
+    );
+  });
+*/
 gulp.task('lint', () => {
     // ESLint ignores files with "node_modules" paths.
     // So, it's best to have gulp ignore the directory as well.
@@ -138,7 +157,7 @@ gulp.task("default", ["copy-html"], function () {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest("dist"));
 
-*/
+
 /**
  * 
  * 
