@@ -3,23 +3,30 @@ $main-fonts: Arial, Helvetica, sans-serif;
 $transTime: 1s;
 
 html, body {
-  	height: 95%;
-  	width: 95%;
+  	height: 100%;
+  	width: 100%;
 	margin: 0;
-	margin-left: 50px;
+	//margin-left: 50px;
 	background: black;
 	
 }
 
 #city {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	left: 0px;
-	background: black url(../images/home_bk.jpg) center center no-repeat;
+	padding-left: 50px;
+	background: black url(../images/home_bk.jpg) center top no-repeat;
+	//background: black url(../images/home_bk.jpg) 10px 10px / 773px 622px center no-repeat;
+	//background-position: left;
+	/*
 	-webkit-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	*/
+	//background-size: 773px, 622px;
+	background-size: 100%, 100%;
+	
   }
 
 
