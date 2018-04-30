@@ -72,7 +72,7 @@ function adjustScreen():void
             cityNewLeft = -40;
         }
         
-       // city.style.left = String(cityNewLeft)+ "px";
+        city.style.left = String(cityNewLeft)+ "px";
 
         city.style.top = String(((city.clientHeight/2 - city.clientHeight/2)+ adjustY))+ "px";
 

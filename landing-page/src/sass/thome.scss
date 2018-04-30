@@ -3,25 +3,21 @@ html, body {
 }
 
 #city {
-  background-size: 80%, 80%;
+  
   max-width: 773px;
-	//background: black url(../images/home_bk.jpg) center/773px, 622px center no-repeat;
-  /*
-  -webkit-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;
-  */
-  //background-size: 773px, 622px;
+
   }
 
 
 #mainimage {
+
   opacity:0;
   width:70%;
   height:449px;
   margin-left: 15%;
   margin-top:20px;
   background-image: url(../images/logo_thr_circle.png);
+
 }
 
 #holder {
@@ -29,7 +25,6 @@ html, body {
   right:0;
   top:0px;
   height:515px;
-  margin-top:10px;
 }
 
 .fix {
@@ -39,8 +34,6 @@ html, body {
   background:#fff;
 }
 #multi {
-  opacity:0;
-  position:absolute;
   left:calc(50% - 100px);
   top:445px;
   width:200px;
