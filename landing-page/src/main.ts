@@ -27,26 +27,32 @@ let mouseY:number;
  */
 document.addEventListener("DOMContentLoaded", function(event):void 
 { 
+    screenHeight = window.innerHeight;
+    screenWidth = window.innerWidth;
     console.log("loaded");
     setTimeout(function()
     {
         mainimage.style.opacity = '1';
-        if(window.innerWidth > 481)
+        setTimeout(function()
         {
-            setTimeout(function()
-            {
-                console.log('timeoue met')
-                multi.style.left = '20px';
-                multi.style.opacity = '1';
-                
-				music.style.left = (holder.clientWidth - 220).toString() +"px";
+            if(window.innerWidth > 481)
+            {   
+                music.style.left = (holder.clientWidth - 220).toString() +"px";
                 music.style.opacity = '1';
+            }
+            else
+            {   
+                music.style.left = '20px';
+                music.style.opacity = '1';       
+            }
+            multi.style.left = '20px';
+            multi.style.opacity = '1';
 
-                thedate.style.opacity = '1';
-                thedate.style.left = '20px';
-                thedate.innerHTML = getTheDate();
-			},3000);
-        }
+            thedate.style.opacity = '1';
+            thedate.style.left = '20px';
+            thedate.innerHTML = getTheDate();
+
+		},2500); 
     },100);
 });
 
