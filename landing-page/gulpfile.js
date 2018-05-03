@@ -34,7 +34,7 @@ gulp.task("copy-html", function(){
 
 gulp.task('compress', function() {
     gulp.src('dist/*.js')
-    .pipe(sourcemaps.init())
+    //.pipe(sourcemaps.init())
       .pipe(minify({
           ext:{
               src:'dist/bundle.js',
@@ -43,7 +43,7 @@ gulp.task('compress', function() {
           exclude: ['tasks'],
           ignoreFiles: ['.combo.js', '-min.js']
       }))
-      .pipe(sourcemaps.write())
+     // .pipe(sourcemaps.write())
       .pipe(gulp.dest('dist'))
   });
   
