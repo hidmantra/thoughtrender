@@ -7,7 +7,6 @@ let holder:HTMLElement = document.getElementById('holder');
 let mainimage:HTMLElement = document.getElementById('mainimage');
 let thedate:HTMLElement = document.getElementById('thedate'); 
 let city:HTMLElement = document.getElementById('city');   
-
 let niceDate:NiceDate = new NiceDate();
 
 let moveBKReady:boolean = true;
